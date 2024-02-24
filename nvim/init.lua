@@ -4,7 +4,7 @@
 -- https://neovim.io/doc/user/lua-guide.html
 -- https://vim.rtorr.com/
 
--- Plugins
+-- Plugins | Warning! You may want to install these one by one because some installations may freeze
 local vim = vim
 local Plug = vim.fn['plug#']
 local PLUGIN_PATH = '~/AppData/Local/nvim-data/plugins'
@@ -20,10 +20,12 @@ Plug('nvim-tree/nvim-web-devicons')
 Plug('windwp/nvim-autopairs')
 Plug('lukas-reineke/indent-blankline.nvim')
 Plug('crispgm/nvim-tabline')
+Plug('nvim-lualine/lualine.nvim')
 
 vim.call('plug#end')
 
 -- Start Plugins
+require('lualine').setup()
 require('tabline').setup({
 	show_icon = true,
 	brackets = { ' ', ' ' }
@@ -39,7 +41,7 @@ vim.keymap.set('n', '<F7>', ':TagbarToggle<CR>')
 
 -- Options
 vim.cmd('colorscheme catppuccin-macchiato')
-vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects')
+vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects/CompProg2Y/CPPProjects/HuffmanLibrary')
 
 vim.opt.number = true
 vim.opt.termguicolors = true
