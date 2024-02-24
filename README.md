@@ -1,1 +1,1 @@
-#Minimalist Text Editor Neovim Config
+# Minimalist Text Editor Neovim Config
