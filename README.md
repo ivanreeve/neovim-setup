@@ -4,4 +4,4 @@ This neovim configuration uses very minimal amount of plugins to change the look
 
 ### Result
 
-[Screenshot](Screenshot.png)
+[Screenshot](./Screenshot.png)
