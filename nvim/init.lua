@@ -6,7 +6,7 @@
 
 -- Plugins | Warning! You may want to install these one by one because some installations may freeze
 
--- A little side note: You may want to visit the README files of each repo for more information about each plugin
+-- A little side note: You may want to visit the README files of each repo for more information/dependencies about each plugin
 
 local vim = vim
 local Plug = vim.fn['plug#']
@@ -67,7 +67,7 @@ require('nvim-autopairs').setup()
 
 -- TREESITTER --
 
-require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- Treesitter requires MinGW gcc compiler, :TSInstall <lang> to parse highlighter
+require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- Treesitter requires MinGW gcc compiler, :TSInstall <lang> | All, to parse highlighter
 
 -- === Keymaps === --
 
