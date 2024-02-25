@@ -5,6 +5,9 @@
 -- https://vim.rtorr.com/
 
 -- Plugins | Warning! You may want to install these one by one because some installations may freeze
+
+-- A little side note: You may want to visit the README files of each repo for more information about each plugin
+
 local vim = vim
 local Plug = vim.fn['plug#']
 local PLUGIN_PATH = '~/AppData/Local/nvim-data/plugins'
@@ -26,14 +29,6 @@ Plug('nvim-telescope/telescope.nvim'); Plug('nvim-lua/plenary.nvim'); -- require
 vim.call('plug#end')
 
 -- === Initialize Plugins === --
-
--- TELESCOPE --
-
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 -- LUALINE --
 
@@ -78,6 +73,7 @@ require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- 
 
 vim.keymap.set('n', '<F1>', ':set number!<CR>')
 vim.keymap.set('n', '<F2>', ':set wrap!<CR>')
+vim.keymap.set('n', '<F3>', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<F7>', ':TagbarToggle<CR>')
 
@@ -85,7 +81,7 @@ vim.keymap.set('n', '<F7>', ':TagbarToggle<CR>')
 -- === Commands === --
 
 vim.cmd('colorscheme catppuccin-macchiato')
-vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects/CompProg2Y/CPPProjects/HuffmanLibrary')
+vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects')
 
 -- === Options === --
 
