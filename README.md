@@ -1,5 +1,6 @@
 # Personalized Neovim Config
 ![myscreenshot](screenshot.png)
+
 This configuration aims to enhance Neovim editing experience with a focus on performance, functionality, and aesthetics. It's heavily based on Lua for speed and leverages powerful plugins for a modern Neovim workflow.
 
 ## Resources
