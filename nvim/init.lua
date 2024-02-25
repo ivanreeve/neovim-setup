@@ -11,7 +11,7 @@ local PLUGIN_PATH = '~/AppData/Local/nvim-data/plugins'
 
 vim.call('plug#begin',PLUGIN_PATH)
 
--- Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+-- Shorthand notation; fetches https://github.com/nvim-tree/nvim-tree.lua
 Plug('nvim-tree/nvim-tree.lua')
 Plug('nvim-treesitter/nvim-treesitter')
 Plug('catppuccin/nvim', { ['as'] = 'catppuccin' }) 
@@ -21,29 +21,74 @@ Plug('windwp/nvim-autopairs')
 Plug('lukas-reineke/indent-blankline.nvim')
 Plug('crispgm/nvim-tabline')
 Plug('nvim-lualine/lualine.nvim')
+Plug('nvim-telescope/telescope.nvim'); Plug('nvim-lua/plenary.nvim'); -- requires BurntSushi/ripgrep, sharkdp/fd to work
 
 vim.call('plug#end')
 
--- Start Plugins
-require('lualine').setup()
+-- === Initialize Plugins === --
+
+-- TELESCOPE --
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- LUALINE --
+
+require('lualine').setup({
+  options = {
+    disabled_filetypes = {
+      winbar = {'NvimTree'}
+    }
+  },
+  winbar = {
+    lualine_c = {{'filename',path=4}}
+  },
+  inactive_winbar = {
+    lualine_c = {{'filename',path=4}}
+  }
+})
+
+-- TABLINE --
+
 require('tabline').setup({
 	show_icon = true,
 	brackets = { ' ', ' ' }
 })
+
+-- NVIM TREE --
+
 require('nvim-tree').setup()
+
+-- INDENT GUIDE --
+ 
 require('ibl').setup() -- Scope requires treesitter to be set up
+
+-- AUTO PAIRS --
+
 require('nvim-autopairs').setup()
+
+-- TREESITTER --
+
 require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- Treesitter requires MinGW gcc compiler, :TSInstall <lang> to parse highlighter
 
--- Keymaps
+-- === Keymaps === --
+
+vim.keymap.set('n', '<F1>', ':set number!<CR>')
+vim.keymap.set('n', '<F2>', ':set wrap!<CR>')
 vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<F7>', ':TagbarToggle<CR>')
 
--- Options
+
+-- === Commands === --
+
 vim.cmd('colorscheme catppuccin-macchiato')
 vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects/CompProg2Y/CPPProjects/HuffmanLibrary')
 
-vim.opt.number = true
+-- === Options === --
+
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
 vim.opt.autochdir = true
