@@ -79,6 +79,7 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -161,10 +162,19 @@ require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- 
 
 
 
+-- === xxxxxxxx FUNCTIONS xxxxxxxx === --
+
+
+-- === xxxxxxxx END OF FUNCTIONS xxxxxxxx === --
+
+
+
+
+
 -- === Keymaps === --
 
 vim.keymap.set('n', '<F1>', ':set number!<CR>')
-vim.keymap.set('n', '<F1>', ':set number!<CR>')
+vim.keymap.set('n', '<F2>', ':set relativenumber!<CR>')
 vim.keymap.set('n', '<F3>', ':set wrap!<CR>')
 vim.keymap.set('n', '<F5>', ':Telescope find_files<CR>')
 vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>')
@@ -178,6 +188,8 @@ vim.cmd('cd C:/Users/Ivan/Desktop/Ivan/Projects')
 vim.cmd('set tabstop=4')    
 vim.cmd('set shiftwidth=4')
 vim.cmd('set expandtab')
+vim.cmd('set clipboard=unnamed')
+
 
 -- === Options === --
 
