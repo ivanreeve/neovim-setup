@@ -119,12 +119,9 @@ require('lualine').setup({
       winbar = {'NvimTree'}
     }
   },
-  winbar = {
-    lualine_c = {{'filename',path=4}}
-  },
-  inactive_winbar = {
-    lualine_c = {{'filename',path=4}}
-  }
+  --winbar = {
+    -- lualine_c = {{'filename',path=4}}
+  -- }
 })
 
 
@@ -173,13 +170,12 @@ require('nvim-treesitter.configs').setup({ highlight = { enable = true, } }) -- 
 
 -- === Keymaps === --
 
-vim.keymap.set('n', '<F1>', ':set number!<CR>')
-vim.keymap.set('n', '<F2>', ':set relativenumber!<CR>')
-vim.keymap.set('n', '<F3>', ':set wrap!<CR>')
-vim.keymap.set('n', '<F5>', ':Telescope find_files<CR>')
-vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<F7>', ':SymbolsOutline<CR>')
-
+vim.keymap.set('n', '<F1>', ':set number!<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<F2>', ':set relativenumber!<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<F3>', ':set wrap!<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<F5>', ':Telescope find_files<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<F6>', ':NvimTreeToggle<CR>', { noremap = true, silent = true})
+vim.keymap.set('n', '<F7>', ':SymbolsOutline<CR>', { noremap = true, silent = true})
 
 -- === Commands === --
 
@@ -199,3 +195,4 @@ vim.opt.autochdir = true
 vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.relativenumber = false
+vim.opt.guifont = 'JetBrainsMono NFM:h12'
